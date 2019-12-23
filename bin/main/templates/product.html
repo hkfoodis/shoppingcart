@@ -3,12 +3,12 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <title>Product</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+      <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
    </head>
    <body>
     
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+      <th:block th:include="_header"></th:block>
+      <th:block th:include="_menu"></th:block>
        
       <div class="page-title">Product</div>
       <div th:if="${errorMessage!= null}" class="error-message" th:utext="${errorMessage}">
@@ -69,7 +69,7 @@
          </table>
       </form>
        
-      <th:block th:include="/_footer"></th:block>
+      <th:block th:include="_footer"></th:block>
        
    </body>
 </html>

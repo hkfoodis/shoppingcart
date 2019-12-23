@@ -3,11 +3,11 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <title>Shopping Cart</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+      <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+      <th:block th:include="_header"></th:block>
+      <th:block th:include="_menu"></th:block>
        
       <div class="page-title">My Cart</div>
        
@@ -47,7 +47,7 @@
                         </span>
                      </li>
                      <li>
-                        <a th:href="@{|/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">
+                        <a th:href="@{|shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}|}">
                         	삭제
                         </a>
                      </li>
@@ -57,13 +57,13 @@
             <div style="clear: both"></div>
             <input class="button-update-sc" type="submit" value="Update Quantity" />
             <a class="navi-item"
-               th:href="@{/shoppingCartCustomer}">고객 정보 입력</a>
+               th:href="@{shoppingCartCustomer}">고객 정보 입력</a>
             <a class="navi-item"
-               th:href="@{/productList}">계속 장보기</a>
+               th:href="@{productList}">계속 장보기</a>
          </form>
       </th:block>
        
-      <th:block th:include="/_footer"></th:block>
+      <th:block th:include="_footer"></th:block>
        
    </body>
 </html>

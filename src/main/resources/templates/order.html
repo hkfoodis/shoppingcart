@@ -3,11 +3,11 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <title>Product List</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+      <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+      <th:block th:include="_header"></th:block>
+      <th:block th:include="_menu"></th:block>
        
       <div class="page-title">Order Info</div>
        
@@ -44,11 +44,11 @@
             <td th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,3,2,'COMMA')}"></td>
          </tr>
       </table>
-      <a th:href="@{|/admin/order/${orderInfo.id}/delete|}">
+      <a th:href="@{|admin/order/${orderInfo.id}/delete|}">
             			<button type="button" class="btn btn-danger">삭제</button>
       </a>
        
-      <th:block th:include="/_footer"></th:block>
+      <th:block th:include="_footer"></th:block>
        
    </body>
 </html>
