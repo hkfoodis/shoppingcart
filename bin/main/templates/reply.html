@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>Reply</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+   </head>
+   <body>
+   		<th:block th:include="/_header"></th:block>
+   		<th:block th:include="/_menu"></th:block>
+   		
+   		<div class="page-title">Reply</div>
+   		
+   		<div class="reply-preview-container" th:each="prodInfo : ${paginationProducts.list}"></div>
+   		
+   		<div class="page-navigator" th:if="${paginationReplys.totalPages > 1}">
+   			<th:block th:each="page : ${paginationReplys.navigationPages}">
+   			
+   				<a th:href="@{|/productList?page=${page}|}" th:if="${page != -1}"
+   					class="nav-item" th:utext="${page}"></a>
+   					
+   				<span class="nav-item" th:if="${page == -1}">...</span>
+   			</th:block>
+   		</div>
+   </body> 

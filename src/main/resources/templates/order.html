@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>Product List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">Order Info</div>
+       
+      <div class="customer-info-container">
+         <h3>구매자 정보:</h3>
+         <ul>
+            <li>이름: <span th:utext="${orderInfo.customerName}"></span></li>
+            <li>이메일: <span th:utext="${orderInfo.customerEmail}"></span></li>
+            <li>번호: <span th:utext="${orderInfo.customerPhone}"></span></li>
+            <li>주소: <span th:utext="${orderInfo.customerAddress}"></span></li>
+         </ul>
+         <h3>주문:</h3>
+         <ul>
+            <li>Total:
+               <span class="total" th:utext="${#numbers.formatDecimal(orderInfo.amount,3,2,'COMMA')}">         
+               </span>
+            </li>
+         </ul>
+      </div>
+      <br/>
+      <table border="1" style="width:100%">
+         <tr>
+            <th>Product Code</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+         </tr>
+         <tr th:each="orderDetailInfo : ${orderInfo.details}">
+            <td th:utext="${orderDetailInfo.productCode}"></td>
+            <td th:utext="${orderDetailInfo.productName}"></td>
+            <td th:utext="${orderDetailInfo.quanity}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInfo.price,3,2,'COMMA')}"></td>
+            <td th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,3,2,'COMMA')}"></td>
+         </tr>
+      </table>
+      <a th:href="@{|/admin/order/${orderInfo.id}/delete|}">
+            			<button type="button" class="btn btn-danger">삭제</button>
+      </a>
+       
+      <th:block th:include="/_footer"></th:block>
+       
+   </body>
+</html>

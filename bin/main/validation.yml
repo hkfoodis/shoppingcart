@@ -1,0 +1,23 @@
+Disabled:
+  loginForm:
+    account: Account is disabled
+Duplicate:
+  productForm:
+    code: Duplicate products
+NotEmpty:
+  customerForm:
+    address: Address is required
+    email: Email is required
+    name: Name is required
+    phone: Phone is required
+  productForm:
+    code: Product code is required
+    name: Product name is required
+NotFound:
+  loginForm:
+    account: Account not found
+Pattern:
+  customerForm:
+    email: Email is not valid
+  productForm:
+    code: Product code is not valid

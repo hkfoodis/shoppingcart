@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>Login</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+   </head>
+   <body>
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">로그인 (For Employee, Manager)</div>
+       
+      <div class="login-container">
+         <h3>아이디와 비밀번호를 입력해주세요.</h3>
+         <br>
+         <!-- /login?error=true -->
+         <th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+             <div th:if= "${#request.getParameter('error') == 'true'}"
+                style="color: red; margin: 10px 0px;">
+                                    로그인에 실패하였습니다.<br /> Reason :
+                <span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+             </div>
+         </th:block>
+          
+         <form method="POST"
+            th:action="@{/j_spring_security_check}">
+            <table>
+               <tr>
+                  <td>ID *</td>
+                  <td><input name="userName" /></td>
+               </tr>
+               <tr>
+                  <td>비밀 번호 *</td>
+                  <td><input type="password" name="password" /></td>
+               </tr>
+               <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                      <input type="submit" value="Login" />
+                      <input type="reset"  value="Reset" />
+                  </td>
+               </tr>
+            </table>
+         </form>
+          
+         <span class="error-message" th:utext="${error}"></span>
+      </div>
+       
+      <div style="text-align:left">
+          <h3>User/Password:</h3>
+          <ul>        
+             <li>employee1/123</li>
+             <li>manager1/123</li>   
+          </ul>
+      </div>
+       
+      <th:block th:include="/_footer"></th:block>
+       
+   </body>
+</html>

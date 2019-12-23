@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <title>Access Denied</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+   </head>
+    
+   <body>
+    
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+       
+      <div class="page-title">접근 제한!</div>
+      <h3 style="color:red;">죄송하지만, 이 페이지는 사용하실 수 없습니다.</h3>
+       
+      <th:block th:include="/_footer"></th:block>
+       
+   </body>
+</html>
