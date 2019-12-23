@@ -2,7 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: maple8542
-    url: 'jdbc:mysql://localhost:3306/shopdb?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false     '
+    url: 'jdbc:mysql://springshoppingmall.cptnit8lonn3.ap-northeast-2.rds.amazonaws.com:3306/shopdb?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false     '
     username: root
   jpa:
     hibernate:
