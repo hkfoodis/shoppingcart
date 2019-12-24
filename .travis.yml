@@ -16,12 +16,6 @@ cache:
     - '$HOME/.gradle'
 
 script: "./gradlew clean build"
-
-# CI 실행 완료시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - dlaehdud96@naver.com
       
 deploy:
   - provider: s3
@@ -36,4 +30,9 @@ deploy:
       repo: hkfoodis/shoppingcart #Github 주소
       branch: master    
       
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - dlaehdud96@naver.com
   
