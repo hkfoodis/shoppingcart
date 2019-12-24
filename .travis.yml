@@ -40,7 +40,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: shoppingcart-deploy
-    key: shoppingcarg.zip # 빌드 파일을 압축해서 전달
+    key: shoppingcart.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
     application: shoppingcart # 웹 콘솔에서 등록한 CodeDeploy 어플리케이션
     deployment_group: shoppingcart-group # 웹 콘솔에서 등록한 CodeDeploy 그룹
