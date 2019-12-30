@@ -1,6 +1,7 @@
 package org.zerock.shoppingcart.controller;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
- 
+import org.springframework.core.env.Environment;
+
 @Controller
 @Transactional
 public class MainController {
@@ -41,6 +43,8 @@ public class MainController {
  
    @Autowired
    private CustomerFormValidator customerFormValidator;
+   
+   private Environment env;
  
    @InitBinder
    public void myInitBinder(WebDataBinder dataBinder) {
@@ -261,6 +265,13 @@ public class MainController {
          response.getOutputStream().write(product.getImage());
       }
       response.getOutputStream().close();
+   }
+   
+   @RequestMapping(value = {"/profile"}, method = RequestMethod.GET)
+   public String getProfile() {
+	   return Arrays.stream(env.getActiveProfiles())
+			   	.findFirst()
+			   	.orElse("");
    }
  
 }

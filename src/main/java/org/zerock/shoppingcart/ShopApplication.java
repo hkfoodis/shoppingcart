@@ -5,6 +5,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
  
 import org.hibernate.SessionFactory;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -29,12 +30,16 @@ public class ShopApplication {
  
     @Autowired
     private Environment env;
-     
+    
+    public static final String APPLICATION_LOCATIONS="spring.config.location="
+    		+ "classpath:application.yml,"
+    		+ "/app/config/shop/real-application.yml";
      
     public static void main(String[] args) {
-        SpringApplication.run(ShopApplication.class, args);
+    	new SpringApplicationBuilder(ShopApplication.class)
+    			.properties(APPLICATION_LOCATIONS)
+    			.run(args);
     }
-     
      
     @Bean(name = "dataSource")
     public DataSource getDataSource() {
