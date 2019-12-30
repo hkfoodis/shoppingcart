@@ -267,7 +267,7 @@ public class MainController {
       response.getOutputStream().close();
    }
    
-   @RequestMapping(value = {"/profile"}, method = RequestMethod.GET)
+   @RequestMapping(value = { "/profile" }, method = RequestMethod.GET)
    public String getProfile() {
 	   return Arrays.stream(env.getActiveProfiles())
 			   	.findFirst()

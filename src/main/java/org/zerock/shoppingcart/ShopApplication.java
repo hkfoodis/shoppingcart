@@ -34,7 +34,7 @@ public class ShopApplication {
     public static final String APPLICATION_LOCATIONS="spring.config.location="
     		+ "classpath:application.yml,"
     		+ "/app/config/shop/real-application.yml";
-     
+    
     public static void main(String[] args) {
     	new SpringApplicationBuilder(ShopApplication.class)
     			.properties(APPLICATION_LOCATIONS)
