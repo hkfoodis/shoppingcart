@@ -7,7 +7,6 @@ import javax.sql.DataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -33,7 +32,7 @@ public class ShopApplication {
     
     public static final String APPLICATION_LOCATIONS="spring.config.location="
     		+ "classpath:application.yml,"
-    		+ "/app/config/shop/real-application.yml";
+    		+ "/home/ec2-user/app/config/shop/real-application.yml";
     
     public static void main(String[] args) {
     	new SpringApplicationBuilder(ShopApplication.class)
