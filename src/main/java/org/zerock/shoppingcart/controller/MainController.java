@@ -6,6 +6,7 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
+import lombok.AllArgsConstructor;
 import org.zerock.shoppingcart.repository.OrderRepository;
 import org.zerock.shoppingcart.repository.ProductRepository;
 import org.zerock.shoppingcart.entity.Product;
@@ -33,6 +34,7 @@ import org.springframework.core.env.Environment;
 
 @Controller
 @Transactional
+@AllArgsConstructor
 public class MainController {
  
    @Autowired
@@ -268,10 +270,13 @@ public class MainController {
    }
    
    @RequestMapping(value = { "/profile" }, method = RequestMethod.GET)
-   public String getProfile() {
-	   return Arrays.stream(env.getActiveProfiles())
+   public String getProfile(Model model) {
+	   String set = Arrays.stream(env.getActiveProfiles())
 			   	.findFirst()
 			   	.orElse("");
+	   
+	   model.addAttribute("set", set);
+	   return "profile";
    }
  
 }
