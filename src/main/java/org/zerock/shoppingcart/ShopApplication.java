@@ -3,7 +3,7 @@ package org.zerock.shoppingcart;
 import java.util.Properties;
  
 import javax.sql.DataSource;
- 
+import java.io.File;
 import org.hibernate.SessionFactory;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,8 @@ public class ShopApplication {
     
     public static final String APPLICATION_LOCATIONS="spring.config.location="
     		+ "classpath:application.yml,"
-    		+ "/home/ec2-user/app/config/shop/real-application.yml";
+    		+ File.separator + "home"+ File.separator +"ec2-user"+ File.separator +"app"+ File.separator +
+    		"config"+ File.separator +"shop"+ File.separator +"real-application.yml";
     
     public static void main(String[] args) {
     	new SpringApplicationBuilder(ShopApplication.class)
